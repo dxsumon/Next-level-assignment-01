@@ -1,5 +1,3 @@
-
-// 01
 type FormatValueType = number | string | boolean;
 const formatValue = (value: FormatValueType): FormatValueType => {
     if (typeof value === "number") {
@@ -13,10 +11,7 @@ const formatValue = (value: FormatValueType): FormatValueType => {
     }
 }
 
-// console.log(formatValue('hello'));
-// console.log(formatValue(5));
-// console.log(formatValue(true));
-// 02
+
 type GetLengthType = string | unknown[]
 const getLength = (value: GetLengthType): number => {
     if (typeof value === 'string') {
@@ -28,10 +23,7 @@ const getLength = (value: GetLengthType): number => {
     return 0;
 }
 
-// console.log(getLength('typescript'));
-// console.log(getLength([10, 20, 30, 40]));
 
-// 03
 class Person {
     name: string;
     age: number;
@@ -45,14 +37,7 @@ class Person {
     }
 }
 
-// const person1 = new Person('John Doe', 30);
-// console.log(person1.getDetails());
 
-// const person2 = new Person('Alice', 25);
-// console.log(person2.getDetails());
-
-
-// 04
 type BooksType = {
     title: string;
     rating: number;
@@ -63,7 +48,7 @@ const filterByRating = (items: BooksType[]): BooksType[] => {
     return higestRatingBook;
 }
 
-// 05
+
 interface Users {
     id: number;
     name: string;
@@ -75,17 +60,7 @@ const filterActiveUsers = (users: Users[]): Users[] => {
     return activeUsers;
 }
 
-// const users = [
-//   { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
-//   { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
-//   { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
-//   { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
-// ];
 
-// console.log(filterActiveUsers(users));
-
-
-// 06
 interface Book {
     title: string;
     author: string;
@@ -98,7 +73,6 @@ const printBookDetails=(books:Book)=>{
 }
 
 
-// 07
 const getUniqueValues=<T>(arr1:T[],arr2:T[]):T[]=>{
     const uniqueArr:T[] = [...arr1];
     for (let i = 0; i < arr2.length; i++) {
@@ -118,19 +92,14 @@ const getUniqueValues=<T>(arr1:T[],arr2:T[]):T[]=>{
     return uniqueArr;
 }
 
-// const array1 = [1, 2, 3, 4, 5];
-// const array2 = [3, 4, 5, 6, 7];
-// console.log(getUniqueValues(array1, array2));
-
-// 08
-interface ProductsType{
+interface Product{
     name: string;
     price: number;
     quantity: number;
     discount?:number;
 }
 
-const calculateTotalPrice=(products:ProductsType[]):number=>{
+const calculateTotalPrice=(products:Product[]):number=>{
     if(products.length === 0)
     {
         return 0;
@@ -142,11 +111,3 @@ const calculateTotalPrice=(products:ProductsType[]):number=>{
         return acc+(productTotalprice - discountPrice);
     },0)
 }
-
-const products:ProductsType[] = [
-  { name: 'Pen', price: 10, quantity: 2},
-  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
-  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
-];
-
-console.log(calculateTotalPrice(products));
