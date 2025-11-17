@@ -99,3 +99,27 @@ const printBookDetails=(books:Book)=>{
 
 
 // 07
+const getUniqueValues=<T>(arr1:T[],arr2:T[]):T[]=>{
+    const uniqueArr:T[] = [...arr1];
+    for (let i = 0; i < arr2.length; i++) {
+        let duplicate:boolean = false;
+        for (let j = 0; j < uniqueArr.length; j++) {
+            if(arr2[i] == uniqueArr[j])
+            {
+                duplicate = true;
+                break;
+            }
+        }
+        if(!duplicate)
+        {
+            uniqueArr.push(arr2[i]);
+        }
+    }
+    return uniqueArr;
+}
+
+// const array1 = [1, 2, 3, 4, 5];
+// const array2 = [3, 4, 5, 6, 7];
+// console.log(getUniqueValues(array1, array2));
+
+// 08
