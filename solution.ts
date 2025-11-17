@@ -104,7 +104,7 @@ const getUniqueValues=<T>(arr1:T[],arr2:T[]):T[]=>{
     for (let i = 0; i < arr2.length; i++) {
         let duplicate:boolean = false;
         for (let j = 0; j < uniqueArr.length; j++) {
-            if(arr2[i] == uniqueArr[j])
+            if(arr2[i] === uniqueArr[j])
             {
                 duplicate = true;
                 break;
@@ -123,3 +123,30 @@ const getUniqueValues=<T>(arr1:T[],arr2:T[]):T[]=>{
 // console.log(getUniqueValues(array1, array2));
 
 // 08
+interface ProductsType{
+    name: string;
+    price: number;
+    quantity: number;
+    discount?:number;
+}
+
+const calculateTotalPrice=(products:ProductsType[]):number=>{
+    if(products.length === 0)
+    {
+        return 0;
+    }
+    return products.reduce((acc,product)=>{
+        const productTotalprice = product.price* product.quantity;
+        const discountPrice = product.discount? (productTotalprice * product.discount) / 100: 0;
+
+        return acc+(productTotalprice - discountPrice);
+    },0)
+}
+
+const products:ProductsType[] = [
+  { name: 'Pen', price: 10, quantity: 2},
+  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
+
+console.log(calculateTotalPrice(products));
